@@ -11,6 +11,14 @@ RUN set -ex \
 	&& chmod +x /root/linkease-dl.sh \
 	&& /root/linkease-dl.sh
 
-VOLUME /linkease/data
+EXPOSE 8897
+
+VOLUME /linkease-data
+
+VOLUME /linkease-config
+
 ENV TZ=Asia/Shanghai
+
+ENV LINKEASE_CONFIG=/linkease-config
+
 CMD [ "/usr/bin/linkease"]
