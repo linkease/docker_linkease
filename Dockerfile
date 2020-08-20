@@ -19,6 +19,7 @@ VOLUME /linkease-config
 
 ENV TZ=Asia/Shanghai
 
+ENV LINKEASE_PORT=8897
 ENV LINKEASE_CONFIG=/linkease-config
 
 CMD [ "/usr/bin/linkease"]
