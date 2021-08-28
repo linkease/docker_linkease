@@ -45,3 +45,5 @@ sudo systemctl restart docker
 
 fixed it !
 
+docker run --rm --privileged multiarch/qemu-user-static --reset -p yes
+
