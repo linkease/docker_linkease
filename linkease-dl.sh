@@ -3,6 +3,7 @@
 PLATFORM=$1
 if [ -z "$PLATFORM" ]; then
     LINKEASE_FILE="linkease.amd64"
+    HEIC_FILE="heif-converter.amd64"
 else
     case "$PLATFORM" in
         linux/386)
@@ -10,6 +11,7 @@ else
             ;;
         linux/amd64)
             LINKEASE_FILE="linkease.amd64"
+            HEIC_FILE="heif-converter.amd64"
             ;;
         linux/arm/v6)
             LINKEASE_FILE="raspi.arm"
@@ -19,6 +21,7 @@ else
             ;;
         linux/arm64|linux/arm64/v8)
             LINKEASE_FILE="raspi.arm64"
+            HEIC_FILE="heif-converter.arm64"
             ;;
         linux/ppc64le)
             LINKEASE_FILE=""
@@ -34,11 +37,16 @@ fi
 [ -z "${LINKEASE_FILE}" ] && echo "Error: Not supported OS Architecture" && exit 1
 
 echo "Downloading binary file: ${LINKEASE_FILE}"
-wget -O /usr/bin/linkease https://firmware.koolshare.cn/binary/LinkEase/LinuxStorage/${LINKEASE_FILE} > /dev/null 2>&1
+wget -O /usr/bin/linkease https://fw.koolcenter.com/binary/LinkEase/LinuxStorage/${LINKEASE_FILE} > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo "Error: Failed to download binary file: ${LINKEASE_FILE}" && exit 1
 fi
 echo "Download binary file: ${LINKEASE_FILE} completed"
+
+if [ ! -z "${HEIC_FILE}" ]; then
+wget -O /usr/bin/heif-converter https://fw.koolcenter.com/binary/LinkEase/LinuxStorage/${HEIC_FILE} > /dev/null 2>&1
+chmod +x /usr/bin/heif-converter
+fi
 
 chmod +x /usr/bin/linkease
 
