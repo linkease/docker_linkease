@@ -37,14 +37,14 @@ fi
 [ -z "${LINKEASE_FILE}" ] && echo "Error: Not supported OS Architecture" && exit 1
 
 echo "Downloading binary file: ${LINKEASE_FILE}"
-wget -O /usr/bin/linkease https://fw.koolcenter.com/binary/LinkEase/LinuxStorage/${LINKEASE_FILE} > /dev/null 2>&1
+wget -O /usr/bin/linkease http://fw.koolcenter.com/binary/LinkEase/LinuxStorage/${LINKEASE_FILE} > /dev/null 2>&1
 if [ $? -ne 0 ]; then
     echo "Error: Failed to download binary file: ${LINKEASE_FILE}" && exit 1
 fi
 echo "Download binary file: ${LINKEASE_FILE} completed"
 
 if [ ! -z "${HEIC_FILE}" ]; then
-wget -O /usr/bin/heif-converter https://fw.koolcenter.com/binary/LinkEase/LinuxStorage/${HEIC_FILE} > /dev/null 2>&1
+wget -O /usr/bin/heif-converter http://fw.koolcenter.com/binary/LinkEase/LinuxStorage/${HEIC_FILE} > /dev/null 2>&1
 chmod +x /usr/bin/heif-converter
 fi
 
