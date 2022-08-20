@@ -6,11 +6,9 @@
 FROM --platform=${TARGETPLATFORM} alpine:latest
 LABEL maintainer="Janson <janson@linkease.com>"
 
-ARG TARGETPLATFORM
-COPY linkease-dl.sh /root/linkease-dl.sh
+ADD dest /dest
 RUN set -ex \
-	&& chmod +x /root/linkease-dl.sh \
-	&& /root/linkease-dl.sh "${TARGETPLATFORM}"
+  cd /dest && /dest/linkease-install.sh && cd / && rm -rf /dest
 
 EXPOSE 8897
 
