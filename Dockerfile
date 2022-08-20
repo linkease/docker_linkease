@@ -6,10 +6,9 @@
 FROM alpine:latest
 LABEL maintainer="Janson <janson@linkease.com>"
 
-COPY linkease-dl.sh /root/linkease-dl.sh
+ADD dest /dest
 RUN set -ex \
-	&& chmod +x /root/linkease-dl.sh \
-	&& /root/linkease-dl.sh
+  cd /dest && /dest/linkease-install.sh && cd / && rm -rf /dest
 
 EXPOSE 8897
 
