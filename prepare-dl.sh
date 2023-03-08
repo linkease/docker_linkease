@@ -2,7 +2,7 @@
 
 set -ex
 
-VER=0.9.0
+VER=1.1.6
 MEDIA=5.0.1
 PWD=`pwd`
 rm -rf dest.tar.gz dest
