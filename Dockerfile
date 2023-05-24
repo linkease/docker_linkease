@@ -6,6 +6,7 @@
 FROM alpine:latest
 LABEL maintainer="Janson <janson@linkease.com>"
 
+#ARG TARGETPLATFORM
 ADD dest /dest
 RUN set -ex \
   cd /dest && /dest/linkease-install.sh "${TARGETPLATFORM}" && cd / && rm -rf /dest
