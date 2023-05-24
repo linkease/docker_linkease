@@ -8,7 +8,7 @@ LABEL maintainer="Janson <janson@linkease.com>"
 
 ADD dest /dest
 RUN set -ex \
-  cd /dest && /dest/linkease-install.sh && cd / && rm -rf /dest
+  cd /dest && /dest/linkease-install.sh "${TARGETPLATFORM}" && cd / && rm -rf /dest
 
 EXPOSE 8897
 
